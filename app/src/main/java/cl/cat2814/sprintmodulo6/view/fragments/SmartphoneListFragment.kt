@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import cl.cat2814.sprintmodulo6.R
 import cl.cat2814.sprintmodulo6.databinding.FragmentSmartphoneListBinding
+import cl.cat2814.sprintmodulo6.view.adapters.SmartphoneAdapter
 import cl.cat2814.sprintmodulo6.viewModel.SmartphoneViewModel
 
 
@@ -22,18 +23,18 @@ class SmartphoneListFragment : Fragment() {
     ): View? {
         binding = FragmentSmartphoneListBinding.inflate(layoutInflater, container, false)
 
-      //  initAdapter()
+        initAdapter()
 
         smartphoneViewModel.getAllSmartphones()
 
         return binding.root
     }
 
-  /*  private fun initAdapter() {
-        val adapter = DogBreedsAdapter()
-        binding.rvDogBreedsList.adapter = adapter
-        dogBreedsViewModel.liveDataDogBreeds().observe(viewLifecycleOwner) {
+    private fun initAdapter() {
+        val adapter = SmartphoneAdapter()
+        binding.rvSmartphonesList.adapter = adapter
+        smartphoneViewModel.liveDataSmartphones().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
-    }*/
+    }
 }

@@ -1,9 +1,11 @@
 package cl.cat2814.sprintmodulo6.model.localData
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+@Database(entities = [SmartphoneEntity::class], version = 1)
 abstract class SmartphoneDatabase: RoomDatabase() {
 
     abstract fun getSmartphonesFromDao(): SmartphoneDao
