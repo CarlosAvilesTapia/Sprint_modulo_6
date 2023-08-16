@@ -6,8 +6,8 @@ import cl.cat2814.sprintmodulo6.model.localData.SmartphoneEntity
 import cl.cat2814.sprintmodulo6.model.remoteData.SmartphoneApi
 
 class SmartphoneRepository(
-    private val smartphoneDao: SmartphoneDao,
-    private val smartphoneApi: SmartphoneApi
+    private val smartphoneApi: SmartphoneApi,
+    private val smartphoneDao: SmartphoneDao
 ) {
     suspend fun loadSmartphoneFromApiToDao() {
 
