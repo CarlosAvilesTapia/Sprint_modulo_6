@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/smartphoneListFragment">
+
+    <fragment
+        android:id="@+id/smartphoneListFragment"
+        android:name="cl.cat2814.sprintmodulo6.view.fragments.SmartphoneListFragment"
+        android:label="fragment_smartphone_list"
+        tools:layout="@layout/fragment_smartphone_list" />
+</navigation>
