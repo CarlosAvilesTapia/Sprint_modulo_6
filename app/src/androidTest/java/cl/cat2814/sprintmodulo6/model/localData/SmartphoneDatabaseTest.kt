@@ -46,12 +46,12 @@ class SmartphoneDatabaseTest {
         smartphoneDao.insertSmartphones(smartphoneList)
 
         // Then A
-        val it = smartphoneDao.getSmartphones().getOrAwaitValue()
+        val it = smartphoneDao.getSmartphonesListFromDatabase().getOrAwaitValue()
         assertThat(it).isNotNull()
         assertThat(it).isEmpty()
 
         // Then B
-        smartphoneDao.getSmartphones().observeForever {
+        smartphoneDao.getSmartphonesListFromDatabase().observeForever {
             assertThat(it).isNotNull()
             assertThat(it).isEmpty()
         }

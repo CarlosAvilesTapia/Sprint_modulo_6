@@ -1,11 +1,15 @@
 package cl.cat2814.sprintmodulo6.view.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import cl.cat2814.sprintmodulo6.R
 import cl.cat2814.sprintmodulo6.databinding.SmartphoneItemLayoutBinding
 import cl.cat2814.sprintmodulo6.model.localData.SmartphoneEntity
 import coil.load
+import coil.transform.RoundedCornersTransformation
 
 class SmartphoneAdapter: RecyclerView.Adapter<SmartphoneAdapter.ItemSmartphoneViewHolder>() {
 
@@ -38,18 +42,21 @@ class SmartphoneAdapter: RecyclerView.Adapter<SmartphoneAdapter.ItemSmartphoneVi
         notifyDataSetChanged()
     }
 
-    inner class ItemSmartphoneViewHolder(val binding: SmartphoneItemLayoutBinding) :
+    class ItemSmartphoneViewHolder(private val binding: SmartphoneItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(smartphones: SmartphoneEntity) {
+
             binding.tvSmartphoneName.text = smartphones.name
             binding.tvSmartphonePrice.text = smartphones.price.toString()
-            binding.ivSmartphoneImage.load(smartphones.image)
-
-
+            binding.ivSmartphoneImage.load(smartphones.image) {
+                transformations(RoundedCornersTransformation(20f))
+            }
+            binding.cvSmartphone.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putInt("id", smartphones.id)
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_smartphoneListFragment_to_smartphoneDetailFragment, bundle)
+            }
         }
-
     }
 }
-
-
-

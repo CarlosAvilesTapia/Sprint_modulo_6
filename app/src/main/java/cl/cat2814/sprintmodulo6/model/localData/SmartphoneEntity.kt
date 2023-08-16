@@ -10,3 +10,14 @@ data class SmartphoneEntity(
     val price: Int,
     val image: String
 )
+
+@Entity(tableName = "smartphones_detail_table")
+data class SmartphoneDetailEntity (
+    @PrimaryKey val id: Int,
+    val name: String,
+    val price: Int,
+    val image: String,
+    val description:String,
+    val lastPrice:Int,
+    val credit: Boolean
+)

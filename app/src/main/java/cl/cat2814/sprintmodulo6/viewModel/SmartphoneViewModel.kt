@@ -13,15 +13,25 @@ class SmartphoneViewModel(application: Application): AndroidViewModel(applicatio
     private val smartphoneRepository: SmartphoneRepository
 
     // Funciones para el listado de smartphones.
-    fun liveDataSmartphones() = smartphoneRepository.getSmartphonesFromDao()
+    fun liveDataSmartphonesFromRepository() = smartphoneRepository.getSmartphonesFromDatabase()
 
     init {
         val smartphonesApi = SmartphoneRetrofitClient.getRetrofitSmartphone()
-        val smartphonesDatabase = SmartphoneDatabase.getDatabase(application).getSmartphonesFromDao()
+        val smartphonesDatabase =
+            SmartphoneDatabase.getDatabase(application).getSmartphonesFromDao()
         smartphoneRepository = SmartphoneRepository(smartphonesApi, smartphonesDatabase)
     }
 
-    fun getAllSmartphones() = viewModelScope.launch {
-        smartphoneRepository.loadSmartphoneFromApiToDao()
+    fun getAllSmartphonesFromRepository() = viewModelScope.launch {
+        smartphoneRepository.loadSmartphoneFromApiToDatabase()
+    }
+
+
+    // Funciones para el detalle de smartphones.
+    fun liveDataSmartphoneDetailFromRepository(id: Int) =
+        smartphoneRepository.getSmartphoneDetailFromDatabase(id)
+
+    fun getSmartphoneDetailFromRepository(id: Int) = viewModelScope.launch {
+        smartphoneRepository.loadSmartphoneDetailFromApiToDatabase(id)
     }
 }

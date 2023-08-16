@@ -13,10 +13,19 @@ interface SmartphoneDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSmartphones(smartphoneEntity: SmartphoneEntity)
 
-    // Función copiada pero cambiando el parámetro por una lista.
+    // Función copiada pero cambiando el parámetro por una lista para testing.
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSmartphones(smartphoneEntity: List<SmartphoneEntity>)
 
     @Query("SELECT * FROM smartphones_table ORDER BY id ASC")
-    fun getSmartphones(): LiveData<List<SmartphoneEntity>>
+    fun getSmartphonesListFromDatabase(): LiveData<List<SmartphoneEntity>>
+
+
+
+    // Inserción y consulta de detalles del smartphone desde la Database.
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertSmartphoneDetail(smartphoneDetailEntity: SmartphoneDetailEntity)
+
+    @Query("SELECT * FROM smartphones_detail_table WHERE id = :id")
+    fun getSmartphoneDetailFromDatabase(id: Int): LiveData<SmartphoneDetailEntity>
 }

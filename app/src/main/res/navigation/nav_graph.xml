@@ -9,5 +9,18 @@
         android:id="@+id/smartphoneListFragment"
         android:name="cl.cat2814.sprintmodulo6.view.fragments.SmartphoneListFragment"
         android:label="fragment_smartphone_list"
-        tools:layout="@layout/fragment_smartphone_list" />
+        tools:layout="@layout/fragment_smartphone_list" >
+        <action
+            android:id="@+id/action_smartphoneListFragment_to_smartphoneDetailFragment"
+            app:destination="@id/smartphoneDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/smartphoneDetailFragment"
+        android:name="cl.cat2814.sprintmodulo6.view.fragments.SmartphoneDetailFragment"
+        android:label="fragment_smartphone_detail"
+        tools:layout="@layout/fragment_smartphone_detail" >
+        <action
+            android:id="@+id/action_smartphoneDetailFragment_to_smartphoneListFragment"
+            app:destination="@id/smartphoneListFragment" />
+    </fragment>
 </navigation>
