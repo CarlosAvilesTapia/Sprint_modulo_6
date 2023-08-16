@@ -3,7 +3,6 @@ package cl.cat2814.sprintmodulo6.model.repository
 import androidx.lifecycle.LiveData
 import cl.cat2814.sprintmodulo6.model.localData.SmartphoneDao
 import cl.cat2814.sprintmodulo6.model.localData.SmartphoneEntity
-import cl.cat2814.sprintmodulo6.model.remoteData.Smartphone
 import cl.cat2814.sprintmodulo6.model.remoteData.SmartphoneApi
 
 class SmartphoneRepository(
@@ -23,9 +22,4 @@ class SmartphoneRepository(
     }
 
     fun getSmartphonesFromDao(): LiveData<List<SmartphoneEntity>> = smartphoneDao.getSmartphones()
-
-
 }
-
-//fun Smartphone.toEntity(): SmartphoneEntity = SmartphoneEntity(this.id, this.name, this.price, this.image)
-
