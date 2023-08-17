@@ -36,11 +36,7 @@ class SmartphoneDetailFragment : Fragment() {
 
         binding = FragmentSmartphoneDetailBinding.inflate(layoutInflater, container, false)
 
-
-
-
-
-       initViewModel()
+        initViewModel()
 
         initListener()
 
@@ -55,11 +51,12 @@ class SmartphoneDetailFragment : Fragment() {
             intent.data = Uri.parse("mailto:")
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("info@novaera.cl"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta: $name id: $id")
-            intent.putExtra(Intent.EXTRA_TEXT, "Hola\n" +
-                    "Vi la propiedad {PRODUCT_NAME} de código {PRODUCT_ID} y me gustaría\n" +
-                    "que me contactaran a este correo o al siguiente número\n" +
-                    "Quedo atento.")
-
+            intent.putExtra(
+                Intent.EXTRA_TEXT, "Hola\n" +
+                        "Estoy interesado en el equipo $name de código $id y me gustaría\n" +
+                        "que me contactaran a este correo o al siguiente número: ___________\n" +
+                        "Saludos y gracias!"
+            )
             startActivity(Intent.createChooser(intent, "Enviar correo"))
         }
     }
@@ -70,23 +67,22 @@ class SmartphoneDetailFragment : Fragment() {
             .observe(viewLifecycleOwner) {
                 if (it != null) {
                     binding.tvSmartphoneDetailName.text = it.name
-                    binding.tvSmartphoneDetailLastPrice.text = smartphoneViewModel.getPriceFormat(it.lastPrice)
-                    binding.tvSmartphoneDetailPrice.text = smartphoneViewModel.getPriceFormat(it.price)
+                    binding.tvSmartphoneDetailLastPrice.text =
+                        smartphoneViewModel.getPriceFormat(it.lastPrice)
+                    binding.tvSmartphoneDetailPrice.text =
+                        smartphoneViewModel.getPriceFormat(it.price)
                     binding.tvSmartphoneDetailDescription.text = it.description
                     binding.ivSmartphoneDetail.load(it.image) {
-                        transformations(RoundedCornersTransformation(20f))
+                        transformations(RoundedCornersTransformation(30f))
                     }
                     if (it.credit) {
                         binding.tvSmartphoneDetailCredit.text = getString(R.string.acepta_credito)
+                        binding.ivCashCredit.setImageResource(R.drawable.credit)
                     } else {
                         binding.tvSmartphoneDetailCredit.text = getString(R.string.solo_efectivo)
+                        binding.ivCashCredit.setImageResource(R.drawable.cash1)
                     }
-
                 }
-
-
-
             }
-
     }
 }

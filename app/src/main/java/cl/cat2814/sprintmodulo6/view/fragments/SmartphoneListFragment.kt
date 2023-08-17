@@ -13,7 +13,7 @@ import cl.cat2814.sprintmodulo6.viewModel.SmartphoneViewModel
 
 class SmartphoneListFragment : Fragment() {
 
-    lateinit var binding: FragmentSmartphoneListBinding
+    private lateinit var binding: FragmentSmartphoneListBinding
     private val smartphoneViewModel: SmartphoneViewModel by activityViewModels()
 
     override fun onCreateView(

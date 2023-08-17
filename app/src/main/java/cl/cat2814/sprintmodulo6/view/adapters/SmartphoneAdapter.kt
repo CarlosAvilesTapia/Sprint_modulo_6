@@ -4,13 +4,12 @@ import android.icu.text.NumberFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import android.view.animation.AnimationUtils
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import cl.cat2814.sprintmodulo6.R
 import cl.cat2814.sprintmodulo6.databinding.SmartphoneItemLayoutBinding
 import cl.cat2814.sprintmodulo6.model.localData.SmartphoneEntity
-import cl.cat2814.sprintmodulo6.viewModel.SmartphoneViewModel
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import java.util.Locale
@@ -34,6 +33,11 @@ class SmartphoneAdapter: RecyclerView.Adapter<SmartphoneAdapter.ItemSmartphoneVi
     ) {
         val smartphones = smartphonesList[position]
         holder.bind(smartphones)
+
+        // Aplicación de la animación creada en la carpeta res.
+        holder.binding.cvSmartphone.startAnimation(
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.anim)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -46,7 +50,7 @@ class SmartphoneAdapter: RecyclerView.Adapter<SmartphoneAdapter.ItemSmartphoneVi
         notifyDataSetChanged()
     }
 
-    class ItemSmartphoneViewHolder(private val binding: SmartphoneItemLayoutBinding) :
+    class ItemSmartphoneViewHolder(val binding: SmartphoneItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(smartphones: SmartphoneEntity) {

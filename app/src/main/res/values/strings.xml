@@ -5,4 +5,13 @@
     <string name="solo_efectivo">Solo efectivo</string>
     <string name="acepta_credito">Acepta crédito</string>
     <string name="error_el_smartphone_no_existe">Error: El smartphone no existe</string>
+    <string name="hola">Hola</string>
+    <string name="_500">500</string>
+    <string name="_120">120</string>
+    <string name="descripci_n">descripción</string>
+    <string name="credito">credito</string>
+    <string name="antes">Antes:</string>
+    <string name="smartphones">Smartphones</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="price">Price</string>
 </resources>

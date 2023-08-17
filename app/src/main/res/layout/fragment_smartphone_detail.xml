@@ -5,6 +5,7 @@
     android:id="@+id/clSmartphoneDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/divider_color"
     tools:context=".view.fragments.SmartphoneDetailFragment">
 
     <ScrollView
@@ -25,8 +26,11 @@
 
             <ImageView
                 android:id="@+id/ivSmartphoneDetail"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:foregroundGravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +41,13 @@
                 android:id="@+id/tvSmartphoneDetailName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:text="Hola"
-                android:textSize="20sp"
+                android:text="@string/hola"
+                android:textColor="@color/primary_text"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivSmartphoneDetail"
@@ -49,9 +57,11 @@
                 android:id="@+id/cvSmartphoneDetail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
-                android:layout_marginEnd="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/text_icons"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,17 +71,31 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/clCvSmartphoneDetail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvBefore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/antes"
+                        android:textColor="@color/secondary_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/tvSmartphoneDetailLastPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="500"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="start"
+                        android:text="@string/_500"
+                        android:textColor="@color/secondary_text"
                         android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvBefore"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="$500.000" />
 
@@ -79,8 +103,10 @@
                         android:id="@+id/tvSmartphoneDetailPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="120"
+                        android:layout_marginStart="16dp"
+                        android:gravity="start"
+                        android:text="@string/_120"
+                        android:textColor="@color/primary_text"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:typeface="sans"
@@ -92,9 +118,11 @@
                         android:id="@+id/tvSmartphoneDetailDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="start"
-                        android:text="descripción"
-                        android:textSize="16sp"
+                        android:text="@string/descripci_n"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvSmartphoneDetailPrice"
                         tools:text="Descripción y características del producto" />
@@ -103,12 +131,27 @@
                         android:id="@+id/tvSmartphoneDetailCredit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="credito"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="start"
+                        android:text="@string/credito"
                         android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvSmartphoneDetailDescription"
                         tools:text="Solo efectivo" />
+
+                    <ImageView
+                        android:id="@+id/ivCashCredit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="120dp"
+                        android:layout_marginBottom="8dp"
+                        android:src="@drawable/ic_launcher_foreground"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvSmartphoneDetailCredit" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -123,10 +166,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+
         android:clickable="true"
         android:contentDescription="@string/app_name"
-
-        app:backgroundTint="@color/text_icons"
+        android:foreground="@drawable/baseline_mail_outline_24"
+        app:backgroundTint="@color/accent_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:focusable="true" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
