@@ -48,8 +48,8 @@ class SmartphoneDetailFragment : Fragment() {
             val intent = Intent(Intent.ACTION_SENDTO)
             val name = binding.tvSmartphoneDetailName.text
             val id = smartphoneId
-            intent.data = Uri.parse("mailto:")
-            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("info@novaera.cl"))
+            intent.data = Uri.parse(getString(R.string.mailto))
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.info_novaera_cl)))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta: $name id: $id")
             intent.putExtra(
                 Intent.EXTRA_TEXT, "Hola\n" +
@@ -57,7 +57,7 @@ class SmartphoneDetailFragment : Fragment() {
                         "que me contactaran a este correo o al siguiente número: ___________\n" +
                         "Saludos y gracias!"
             )
-            startActivity(Intent.createChooser(intent, "Enviar correo"))
+            startActivity(Intent.createChooser(intent, getString(R.string.enviar_correo)))
         }
     }
 

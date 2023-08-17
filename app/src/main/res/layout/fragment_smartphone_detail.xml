@@ -5,7 +5,7 @@
     android:id="@+id/clSmartphoneDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/divider_color"
+    android:background="@drawable/gradient_background"
     tools:context=".view.fragments.SmartphoneDetailFragment">
 
     <ScrollView
@@ -169,10 +169,10 @@
 
         android:clickable="true"
         android:contentDescription="@string/app_name"
+        android:focusable="true"
         android:foreground="@drawable/baseline_mail_outline_24"
         app:backgroundTint="@color/accent_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:focusable="true" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,9 +22,9 @@ class SmartphoneListFragment : Fragment() {
     ): View? {
         binding = FragmentSmartphoneListBinding.inflate(layoutInflater, container, false)
 
-        initAdapter()
+        initViewModel()
 
-        smartphoneViewModel.getAllSmartphonesFromRepository()
+        initAdapter()
 
         return binding.root
     }
@@ -35,5 +35,9 @@ class SmartphoneListFragment : Fragment() {
         smartphoneViewModel.liveDataSmartphonesFromRepository().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
+    }
+
+    private fun initViewModel() {
+        smartphoneViewModel.getAllSmartphonesFromRepository()
     }
 }

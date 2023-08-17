@@ -63,7 +63,7 @@
         android:id="@+id/rvSmartphonesList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/divider_color"
+        android:background="@drawable/gradient_background"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

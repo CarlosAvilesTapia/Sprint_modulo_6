@@ -14,4 +14,7 @@
     <string name="smartphones">Smartphones</string>
     <string name="anonymous">Anonymous</string>
     <string name="price">Price</string>
+    <string name="mailto">mailto:</string>
+    <string name="info_novaera_cl">info@novaera.cl</string>
+    <string name="enviar_correo">Enviar correo</string>
 </resources>
