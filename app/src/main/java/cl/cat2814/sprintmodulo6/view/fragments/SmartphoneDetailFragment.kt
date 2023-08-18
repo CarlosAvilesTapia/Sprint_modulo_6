@@ -45,21 +45,31 @@ class SmartphoneDetailFragment : Fragment() {
 
     private fun initListener() {
         binding.fabEmail.setOnClickListener {
-            val intent = Intent(Intent.ACTION_SENDTO)
-            val name = binding.tvSmartphoneDetailName.text
-            val id = smartphoneId
-            intent.data = Uri.parse(getString(R.string.mailto))
-            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.info_novaera_cl)))
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta: $name id: $id")
-            intent.putExtra(
-                Intent.EXTRA_TEXT, "Hola\n" +
-                        "Estoy interesado en el equipo $name de código $id y me gustaría\n" +
-                        "que me contactaran a este correo o al siguiente número: ___________\n" +
-                        "Saludos y gracias!"
-            )
+            val intent = createEmailIntent()
             startActivity(Intent.createChooser(intent, getString(R.string.enviar_correo)))
         }
     }
+
+    private fun createEmailIntent(): Intent {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        val name = binding.tvSmartphoneDetailName.text
+        val id = smartphoneId
+        intent.data = Uri.parse(getString(R.string.mailto))
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.info_novaera_cl)))
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta: $name id: $id")
+        intent.putExtra(
+            Intent.EXTRA_TEXT, getEmailBodyContent(name, id)
+        )
+        return intent
+    }
+
+    private fun getEmailBodyContent(name: CharSequence, id: Int): String {
+        return "Hola\n" +
+                "Me interesa el equipo $name de código $id y me gustaría\n" +
+                "que me contactaran a este correo o al siguiente número: ___________\n" +
+                "Saludos y gracias!"
+    }
+
 
     private fun initViewModel() {
         smartphoneViewModel.getSmartphoneDetailFromRepository(smartphoneId)
@@ -74,6 +84,8 @@ class SmartphoneDetailFragment : Fragment() {
                     binding.tvSmartphoneDetailDescription.text = it.description
                     binding.ivSmartphoneDetail.load(it.image) {
                         transformations(RoundedCornersTransformation(30f))
+                        placeholder(R.drawable.placeholder)
+                        error(R.drawable.placeholder)
                     }
                     if (it.credit) {
                         binding.tvSmartphoneDetailCredit.text = getString(R.string.acepta_credito)

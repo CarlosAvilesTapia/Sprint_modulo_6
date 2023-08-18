@@ -54,11 +54,12 @@ class SmartphoneAdapter: RecyclerView.Adapter<SmartphoneAdapter.ItemSmartphoneVi
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(smartphones: SmartphoneEntity) {
-
             binding.tvSmartphoneName.text = smartphones.name
             binding.tvSmartphonePrice.text = getPriceFormat(smartphones.price)
             binding.ivSmartphoneImage.load(smartphones.image) {
                 transformations(RoundedCornersTransformation(20f))
+                placeholder(R.drawable.placeholder)
+                error(R.drawable.placeholder)
             }
             binding.cvSmartphone.setOnClickListener {
                 val bundle = Bundle()
@@ -69,7 +70,7 @@ class SmartphoneAdapter: RecyclerView.Adapter<SmartphoneAdapter.ItemSmartphoneVi
         }
 
         // Función para formatear Int del precio a un String en formato moneda.
-        fun getPriceFormat(price: Int): String {
+        private fun getPriceFormat(price: Int): String {
             val currency: NumberFormat = NumberFormat.getCurrencyInstance(Locale("es", "CL"))
             return currency.format(price)
         }

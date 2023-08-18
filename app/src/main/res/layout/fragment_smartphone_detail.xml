@@ -27,22 +27,32 @@
             <ImageView
                 android:id="@+id/ivSmartphoneDetail"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
                 android:foregroundGravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/guideline3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_launcher_foreground" />
+                tools:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="@string/smartphone_detail" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.66" />
 
             <TextView
                 android:id="@+id/tvSmartphoneDetailName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
                 android:text="@string/hola"
@@ -50,7 +60,7 @@
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivSmartphoneDetail"
+                app:layout_constraintTop_toTopOf="@+id/guideline3"
                 tools:text="Teléfono ejemplo modelo moderno" />
 
             <androidx.cardview.widget.CardView
@@ -151,7 +161,8 @@
                         android:src="@drawable/ic_launcher_foreground"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvSmartphoneDetailCredit" />
+                        app:layout_constraintStart_toEndOf="@+id/tvSmartphoneDetailCredit"
+                        android:contentDescription="@string/credit" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
